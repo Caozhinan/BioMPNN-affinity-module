@@ -1,0 +1,56 @@
+ bash run_pipline.sh 
+✅ CSV 文件验证通过: 285 个复合物
+
+⏭️  跳过预处理步骤
+⚠️  Warning: processed_csv 不存在，将使用原始 CSV: /xcfhome/zncao02/BioMPNN_affinity/scripts/core_set.csv
+
+⏭️  跳过图构建步骤
+
+================================================================================
+Step: 测试 (train.py)
+Command: python train.py --data_csv /xcfhome/zncao02/BioMPNN_affinity/scripts/core_set.csv --mode test --graph_type Graph_EHIGN_5edges --batch_size 96 --epochs 200 --early_stop_epoch 30 --learning_rate 0.0001 --weight_decay 1e-06 --train_ratio 0.9 --random_seed 42 --node_feat_size 35 --edge_feat_size 17 --hidden_feat_size 256 --layer_num 3 --num_workers 8 --cuda_device 0 --save_path /xcfhome/zncao02/BioMPNN_affinity/finetuned_model.pt
+================================================================================
+
+2025-10-22 14:30:31 - INFO - 📂 读取 CSV 文件: /xcfhome/zncao02/BioMPNN_affinity/scripts/core_set.csv
+2025-10-22 14:30:31 - INFO -    - CSV 中总样本数: 285
+2025-10-22 14:30:31 - INFO - 
+🧪 测试模式: 使用全部数据进行评估
+2025-10-22 14:30:31 - INFO -    - 数据集 CSV 样本数: 285
+2025-10-22 14:30:31 - INFO - 
+🔍 检查训练集 DGL 文件...
+2025-10-22 14:30:31 - INFO - ✅ 数据集加载完成:
+2025-10-22 14:30:31 - INFO -    - 总样本数: 285
+2025-10-22 14:30:31 - INFO -    - 成功加载: 285
+2025-10-22 14:30:31 - INFO -    - 跳过样本: 0
+2025-10-22 14:30:31 - INFO - 
+🔍 检查验证集 DGL 文件...
+2025-10-22 14:30:31 - INFO - ✅ 数据集加载完成:
+2025-10-22 14:30:31 - INFO -    - 总样本数: 285
+2025-10-22 14:30:31 - INFO -    - 成功加载: 285
+2025-10-22 14:30:31 - INFO -    - 跳过样本: 0
+2025-10-22 14:30:31 - INFO - 
+✅ 最终数据集统计:
+2025-10-22 14:30:31 - INFO -    - 训练集有效样本: 285
+2025-10-22 14:30:31 - INFO -    - 验证集有效样本: 285
+2025-10-22 14:30:31 - INFO - 
+📥 测试模式：加载模型权重: /xcfhome/zncao02/BioMPNN_affinity/finetuned_model.pt
+2025-10-22 14:30:32 - INFO - ✅ 模型加载成功!
+2025-10-22 14:30:32 - INFO - 
+🧪 开始测试评估...
+2025-10-22 14:30:33 - INFO - 
+🎉 测试结果: RMSE=20.0558, Pearson=-0.3271
+2025-10-22 14:30:33 - INFO - 📊 预测结果已保存到: /xcfhome/zncao02/BioMPNN_affinity/scripts/core_set_predictions.csv
+2025-10-22 14:30:33 - INFO -    - 包含列: ['receptor', 'ligand', 'name', 'pk', 'predicted_pK', 'true_pK', 'error', 'absolute_error']
+
+✅ 测试 (train.py) completed successfully
+
+
+================================================================================
+🎉 完整流程执行成功！
+================================================================================
+模式: 测试
+输入 CSV: /xcfhome/zncao02/BioMPNN_affinity/scripts/core_set.csv
+处理后 CSV: /xcfhome/zncao02/BioMPNN_affinity/scripts/core_set.csv
+================================================================================
+
+(base) ~/BioMPNN_affinity

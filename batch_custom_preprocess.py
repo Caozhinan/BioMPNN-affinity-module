@@ -78,36 +78,50 @@ def generate_pocket_from_paths(receptor_path, ligand_path, output_dir, name, dis
     finally:
         pymol.cmd.delete('all')
 
-def process_ligand_file(ligand_path, output_dir, name):
-    """
-    处理配体文件，检查空文件。
-    """
-    ligand_output_path = os.path.join(output_dir, f'{name}_ligand.pdb')
-    file_ext = os.path.splitext(ligand_path)[1].lower()
-    
-    try:
-        if file_ext == '.pdb':
-            shutil.copy2(ligand_path, ligand_output_path)
-        else:
-            result = subprocess.run(
-                ['obabel', ligand_path, '-O', ligand_output_path, '-d'],
-                capture_output=True, text=True, check=False, timeout=120
-            )
-            if result.returncode != 0:
-                logging.error(f"[{name}] OpenBabel conversion failed. Stderr: {result.stderr}")
-                return None
-        
-        if os.path.exists(ligand_output_path) and os.path.getsize(ligand_output_path) > 0:
-            return ligand_output_path
-        else:
-            logging.warning(f"[{name}] Ligand file was generated but is empty. Original: {ligand_path}")
-            return None
-
-    except subprocess.TimeoutExpired:
-        logging.error(f"[{name}] OpenBabel conversion timed out.")
-        return None
-    except Exception as e:
-        logging.error(f"[{name}] Error processing ligand file: {e}")
+def process_ligand_file(ligand_path, output_dir, name):  
+    """处理配体文件,检查空文件并清理PDB格式"""  
+    ligand_output_path = os.path.join(output_dir, f'{name}_ligand.pdb')  
+    file_ext = os.path.splitext(ligand_path)[1].lower()  
+      
+    try:  
+        if file_ext == '.pdb':  
+            shutil.copy2(ligand_path, ligand_output_path)  
+        else:  
+            result = subprocess.run(  
+                ['obabel', ligand_path, '-O', ligand_output_path, '-d'],  
+                capture_output=True, text=True, check=False, timeout=120  
+            )  
+            if result.returncode != 0:  
+                logging.error(f"[{name}] OpenBabel conversion failed. Stderr: {result.stderr}")  
+                return None  
+          
+        # 清理PDB文件中的非标准原子类型标识符  
+        if os.path.exists(ligand_output_path):  
+            with open(ligand_output_path, 'r') as f:  
+                lines = f.readlines()  
+              
+            cleaned_lines = []  
+            for line in lines:  
+                if line.startswith('HETATM') or line.startswith('ATOM'):  
+                    # 移除第77-78列的非标准原子类型(如C1-, O1-)  
+                    if len(line) > 76:  
+                        line = line[:76] + '  ' + line[78:] if len(line) > 78 else line[:76] + '\n'  
+                cleaned_lines.append(line)  
+              
+            with open(ligand_output_path, 'w') as f:  
+                f.writelines(cleaned_lines)  
+          
+        if os.path.exists(ligand_output_path) and os.path.getsize(ligand_output_path) > 0:  
+            return ligand_output_path  
+        else:  
+            logging.warning(f"[{name}] Ligand file was generated but is empty. Original: {ligand_path}")  
+            return None  
+  
+    except subprocess.TimeoutExpired:  
+        logging.error(f"[{name}] OpenBabel conversion timed out.")  
+        return None  
+    except Exception as e:  
+        logging.error(f"[{name}] Error processing ligand file: {e}")  
         return None
 
 def process_one_complex(row_dict, distance):
@@ -134,10 +148,16 @@ def process_one_complex(row_dict, distance):
             return None
 
         # --- 关键修复：健壮地加载PDB文件 ---
-        ligand = Chem.MolFromPDBFile(ligand_pdb_path, removeHs=True)
-        if ligand is None:
-            logging.error(f"[{name}] RDKit failed to load ligand from file: {ligand_pdb_path}")
-            return None
+        ligand = Chem.MolFromPDBFile(ligand_pdb_path, removeHs=True, sanitize=False, proximityBonding=False)  
+        if ligand is None:  
+            logging.error(f"[{name}] RDKit failed to load ligand from file: {ligand_pdb_path}")  
+            return None  
+  
+# 尝试手动sanitize  
+        try:  
+            Chem.SanitizeMol(ligand)  
+        except Exception as e:  
+            logging.warning(f"[{name}] Could not sanitize ligand molecule. Proceeding with unsanitized molecule. RDKit error: {e}")
 
         # 1. 以“宽容”模式加载，不进行化学检查 (sanitize=False)
         pocket = Chem.MolFromPDBFile(pocket_path, removeHs=True, sanitize=False)

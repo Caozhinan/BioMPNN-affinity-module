@@ -1,4 +1,6 @@
-import os  
+import os
+# os.environ['DGLBACKEND'] = 'pytorch'  
+# os.environ['DGL_DOWNLOAD'] = '0'  
 import pandas as pd  
 import numpy as np  
 import pickle  
@@ -14,7 +16,7 @@ import dgl
 from rdkit import Chem  
 from rdkit import RDLogger  
 import warnings  
-  
+
 RDLogger.DisableLog('rdApp.*')  
 np.set_printoptions(threshold=np.inf)  
 warnings.filterwarnings('ignore') 
@@ -311,7 +313,7 @@ class GraphDataset(object):
         for i, row in data_df.iterrows():  
             # 使用name列作为复合物ID，pK列作为亲和力值  
             name = row['name']  
-            pKa = float(row['pK'])  
+            pKa = float(row['pk'])  
             receptor_path = row['receptor']  
               
             # 从蛋白质文件路径获取父目录  
@@ -384,7 +386,7 @@ def main():
     df = pd.read_csv(args.csv_file)  
       
     # 验证CSV格式  
-    required_columns = ['receptor', 'ligand', 'name', 'pK']  
+    required_columns = ['receptor', 'ligand', 'name', 'pk']  
     if not all(col in df.columns for col in required_columns):  
         raise ValueError(f"CSV must contain columns: {required_columns}")  
       

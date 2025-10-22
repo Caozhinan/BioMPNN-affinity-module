@@ -1,0 +1,116 @@
+2025-10-22 11:57:15 - INFO - 📝 日志将保存到: finetune_training.log
+2025-10-22 11:57:16 - INFO - 📂 读取 CSV 文件: /xcfhome/zncao02/dataset_bap/PDBBind/pdbbind_train.csv
+2025-10-22 11:57:16 - INFO -    - CSV 中总样本数: 18652
+2025-10-22 11:57:16 - INFO - 
+🔄 微调模式: 自动分割数据集 (90% 训练 / 10% 验证)
+2025-10-22 11:57:16 - INFO -    - 训练集 CSV 样本数: 16786
+2025-10-22 11:57:16 - INFO -    - 验证集 CSV 样本数: 1866
+2025-10-22 11:57:16 - INFO - 
+🔍 检查训练集 DGL 文件...
+2025-10-22 11:57:57 - INFO - ✅ 数据集加载完成:
+2025-10-22 11:57:57 - INFO -    - 总样本数: 16786
+2025-10-22 11:57:57 - INFO -    - 成功加载: 16786
+2025-10-22 11:57:57 - INFO -    - 跳过样本: 0
+2025-10-22 11:57:57 - INFO - 
+🔍 检查验证集 DGL 文件...
+2025-10-22 11:58:06 - INFO - ✅ 数据集加载完成:
+2025-10-22 11:58:06 - INFO -    - 总样本数: 1866
+2025-10-22 11:58:06 - INFO -    - 成功加载: 1866
+2025-10-22 11:58:06 - INFO -    - 跳过样本: 0
+2025-10-22 11:58:06 - INFO - 
+✅ 最终数据集统计:
+2025-10-22 11:58:06 - INFO -    - 训练集有效样本: 16786
+2025-10-22 11:58:06 - INFO -    - 验证集有效样本: 1866
+2025-10-22 11:58:13 - INFO - 
+📥 加载预训练模型: /xcfhome/zncao02/BioMPNN_affinity/ckpt/best_model.pt
+2025-10-22 11:58:16 - INFO - ✅ 预训练模型加载成功!
+2025-10-22 11:58:34 - INFO - 
+🚀 开始微调训练...
+2025-10-22 11:58:34 - INFO -    - 学习率: 0.0001
+2025-10-22 11:58:34 - INFO -    - 批次大小: 64
+2025-10-22 11:58:34 - INFO -    - 最大轮数: 200
+2025-10-22 11:58:34 - INFO -    - 早停耐心值: 20
+2025-10-22 12:03:57 - INFO - Epoch 0: train_loss=1.2386, train_rmse=1.1129, valid_rmse=1.2362, valid_pr=0.7351
+2025-10-22 12:03:58 - INFO - 💾 保存最佳微调模型 (valid_rmse=1.2362)
+2025-10-22 12:04:26 - INFO - Epoch 1: train_loss=1.3078, train_rmse=1.1436, valid_rmse=1.2062, valid_pr=0.7486
+2025-10-22 12:04:26 - INFO - 💾 保存最佳微调模型 (valid_rmse=1.2062)
+2025-10-22 12:04:55 - INFO - Epoch 2: train_loss=1.1742, train_rmse=1.0836, valid_rmse=1.2274, valid_pr=0.7414
+2025-10-22 12:05:24 - INFO - Epoch 3: train_loss=1.0182, train_rmse=1.0091, valid_rmse=1.2087, valid_pr=0.7469
+2025-10-22 12:05:52 - INFO - Epoch 4: train_loss=0.8919, train_rmse=0.9444, valid_rmse=1.1797, valid_pr=0.7622
+2025-10-22 12:05:52 - INFO - 💾 保存最佳微调模型 (valid_rmse=1.1797)
+2025-10-22 12:06:21 - INFO - Epoch 5: train_loss=0.7960, train_rmse=0.8922, valid_rmse=1.1772, valid_pr=0.7639
+2025-10-22 12:06:21 - INFO - 💾 保存最佳微调模型 (valid_rmse=1.1772)
+2025-10-22 12:06:49 - INFO - Epoch 6: train_loss=0.7241, train_rmse=0.8509, valid_rmse=1.1644, valid_pr=0.7695
+2025-10-22 12:06:49 - INFO - 💾 保存最佳微调模型 (valid_rmse=1.1644)
+2025-10-22 12:07:18 - INFO - Epoch 7: train_loss=0.6825, train_rmse=0.8262, valid_rmse=1.1634, valid_pr=0.7702
+2025-10-22 12:07:18 - INFO - 💾 保存最佳微调模型 (valid_rmse=1.1634)
+2025-10-22 12:07:46 - INFO - Epoch 8: train_loss=0.6562, train_rmse=0.8101, valid_rmse=1.1662, valid_pr=0.7716
+2025-10-22 12:08:15 - INFO - Epoch 9: train_loss=0.6142, train_rmse=0.7837, valid_rmse=1.1684, valid_pr=0.7722
+2025-10-22 12:08:43 - INFO - Epoch 10: train_loss=0.5794, train_rmse=0.7612, valid_rmse=1.1782, valid_pr=0.7744
+2025-10-22 12:09:12 - INFO - Epoch 11: train_loss=0.5629, train_rmse=0.7502, valid_rmse=1.1654, valid_pr=0.7748
+2025-10-22 12:09:41 - INFO - Epoch 12: train_loss=0.5321, train_rmse=0.7294, valid_rmse=1.1675, valid_pr=0.7746
+2025-10-22 12:10:09 - INFO - Epoch 13: train_loss=0.5161, train_rmse=0.7184, valid_rmse=1.1568, valid_pr=0.7781
+2025-10-22 12:10:09 - INFO - 💾 保存最佳微调模型 (valid_rmse=1.1568)
+2025-10-22 12:10:38 - INFO - Epoch 14: train_loss=0.5003, train_rmse=0.7073, valid_rmse=1.1669, valid_pr=0.7764
+2025-10-22 12:11:06 - INFO - Epoch 15: train_loss=0.4802, train_rmse=0.6930, valid_rmse=1.1491, valid_pr=0.7806
+2025-10-22 12:11:06 - INFO - 💾 保存最佳微调模型 (valid_rmse=1.1491)
+2025-10-22 12:11:34 - INFO - Epoch 16: train_loss=0.4626, train_rmse=0.6801, valid_rmse=1.1540, valid_pr=0.7780
+2025-10-22 12:12:02 - INFO - Epoch 17: train_loss=0.4460, train_rmse=0.6679, valid_rmse=1.1617, valid_pr=0.7769
+2025-10-22 12:12:31 - INFO - Epoch 18: train_loss=0.4291, train_rmse=0.6550, valid_rmse=1.1673, valid_pr=0.7844
+2025-10-22 12:13:00 - INFO - Epoch 19: train_loss=0.4263, train_rmse=0.6529, valid_rmse=1.1394, valid_pr=0.7849
+2025-10-22 12:13:11 - INFO - 💾 保存最佳微调模型 (valid_rmse=1.1394)
+2025-10-22 12:13:54 - INFO - Epoch 20: train_loss=0.4107, train_rmse=0.6408, valid_rmse=1.1439, valid_pr=0.7822
+2025-10-22 12:14:23 - INFO - Epoch 21: train_loss=0.3903, train_rmse=0.6247, valid_rmse=1.1466, valid_pr=0.7822
+2025-10-22 12:14:52 - INFO - Epoch 22: train_loss=0.3797, train_rmse=0.6162, valid_rmse=1.1598, valid_pr=0.7806
+2025-10-22 12:15:20 - INFO - Epoch 23: train_loss=0.3633, train_rmse=0.6028, valid_rmse=1.1415, valid_pr=0.7873
+2025-10-22 12:15:48 - INFO - Epoch 24: train_loss=0.3595, train_rmse=0.5996, valid_rmse=1.1471, valid_pr=0.7806
+2025-10-22 12:16:17 - INFO - Epoch 25: train_loss=0.3543, train_rmse=0.5952, valid_rmse=1.1523, valid_pr=0.7876
+2025-10-22 12:16:45 - INFO - Epoch 26: train_loss=0.3477, train_rmse=0.5897, valid_rmse=1.1517, valid_pr=0.7847
+2025-10-22 12:17:14 - INFO - Epoch 27: train_loss=0.3357, train_rmse=0.5794, valid_rmse=1.1298, valid_pr=0.7916
+2025-10-22 12:17:22 - INFO - 💾 保存最佳微调模型 (valid_rmse=1.1298)
+2025-10-22 12:17:50 - INFO - Epoch 28: train_loss=0.3328, train_rmse=0.5769, valid_rmse=1.1382, valid_pr=0.7829
+2025-10-22 12:18:18 - INFO - Epoch 29: train_loss=0.3218, train_rmse=0.5673, valid_rmse=1.1367, valid_pr=0.7850
+2025-10-22 12:18:47 - INFO - Epoch 30: train_loss=0.3181, train_rmse=0.5640, valid_rmse=1.1474, valid_pr=0.7858
+2025-10-22 12:19:16 - INFO - Epoch 31: train_loss=0.3023, train_rmse=0.5498, valid_rmse=1.1512, valid_pr=0.7839
+2025-10-22 12:19:44 - INFO - Epoch 32: train_loss=0.3008, train_rmse=0.5485, valid_rmse=1.1490, valid_pr=0.7860
+2025-10-22 12:20:13 - INFO - Epoch 33: train_loss=0.2965, train_rmse=0.5445, valid_rmse=1.1377, valid_pr=0.7836
+2025-10-22 12:20:42 - INFO - Epoch 34: train_loss=0.2960, train_rmse=0.5440, valid_rmse=1.1767, valid_pr=0.7845
+2025-10-22 12:21:10 - INFO - Epoch 35: train_loss=0.2936, train_rmse=0.5418, valid_rmse=1.1559, valid_pr=0.7836
+2025-10-22 12:21:39 - INFO - Epoch 36: train_loss=0.2834, train_rmse=0.5324, valid_rmse=1.1643, valid_pr=0.7845
+2025-10-22 12:22:07 - INFO - Epoch 37: train_loss=0.2837, train_rmse=0.5326, valid_rmse=1.1333, valid_pr=0.7874
+2025-10-22 12:22:36 - INFO - Epoch 38: train_loss=0.2670, train_rmse=0.5168, valid_rmse=1.1431, valid_pr=0.7859
+2025-10-22 12:23:04 - INFO - Epoch 39: train_loss=0.2646, train_rmse=0.5144, valid_rmse=1.1797, valid_pr=0.7838
+2025-10-22 12:23:33 - INFO - Epoch 40: train_loss=0.2582, train_rmse=0.5081, valid_rmse=1.1315, valid_pr=0.7890
+2025-10-22 12:24:01 - INFO - Epoch 41: train_loss=0.2588, train_rmse=0.5087, valid_rmse=1.1302, valid_pr=0.7892
+2025-10-22 12:24:30 - INFO - Epoch 42: train_loss=0.2522, train_rmse=0.5022, valid_rmse=1.1405, valid_pr=0.7886
+2025-10-22 12:24:58 - INFO - Epoch 43: train_loss=0.2484, train_rmse=0.4984, valid_rmse=1.1371, valid_pr=0.7883
+2025-10-22 12:25:27 - INFO - Epoch 44: train_loss=0.2429, train_rmse=0.4929, valid_rmse=1.1381, valid_pr=0.7855
+2025-10-22 12:25:55 - INFO - Epoch 45: train_loss=0.2310, train_rmse=0.4806, valid_rmse=1.1258, valid_pr=0.7907
+2025-10-22 12:26:04 - INFO - 💾 保存最佳微调模型 (valid_rmse=1.1258)
+2025-10-22 12:26:32 - INFO - Epoch 46: train_loss=0.2341, train_rmse=0.4838, valid_rmse=1.1195, valid_pr=0.7905
+2025-10-22 12:26:52 - INFO - 💾 保存最佳微调模型 (valid_rmse=1.1195)
+2025-10-22 12:27:19 - INFO - Epoch 47: train_loss=0.2310, train_rmse=0.4806, valid_rmse=1.1386, valid_pr=0.7861
+2025-10-22 12:27:48 - INFO - Epoch 48: train_loss=0.2289, train_rmse=0.4784, valid_rmse=1.1294, valid_pr=0.7882
+2025-10-22 12:28:16 - INFO - Epoch 49: train_loss=0.2246, train_rmse=0.4739, valid_rmse=1.1329, valid_pr=0.7890
+2025-10-22 12:28:45 - INFO - Epoch 50: train_loss=0.2180, train_rmse=0.4669, valid_rmse=1.1291, valid_pr=0.7884
+2025-10-22 12:29:14 - INFO - Epoch 51: train_loss=0.2205, train_rmse=0.4696, valid_rmse=1.1658, valid_pr=0.7846
+2025-10-22 12:29:43 - INFO - Epoch 52: train_loss=0.2162, train_rmse=0.4650, valid_rmse=1.1222, valid_pr=0.7893
+2025-10-22 12:30:11 - INFO - Epoch 53: train_loss=0.2128, train_rmse=0.4613, valid_rmse=1.1347, valid_pr=0.7872
+2025-10-22 12:30:40 - INFO - Epoch 54: train_loss=0.2120, train_rmse=0.4604, valid_rmse=1.1460, valid_pr=0.7838
+2025-10-22 12:31:09 - INFO - Epoch 55: train_loss=0.2035, train_rmse=0.4512, valid_rmse=1.1434, valid_pr=0.7885
+2025-10-22 12:31:38 - INFO - Epoch 56: train_loss=0.2021, train_rmse=0.4496, valid_rmse=1.1356, valid_pr=0.7877
+2025-10-22 12:32:07 - INFO - Epoch 57: train_loss=0.2043, train_rmse=0.4520, valid_rmse=1.1399, valid_pr=0.7870
+2025-10-22 12:32:36 - INFO - Epoch 58: train_loss=0.1972, train_rmse=0.4441, valid_rmse=1.1321, valid_pr=0.7872
+2025-10-22 12:33:04 - INFO - Epoch 59: train_loss=0.1967, train_rmse=0.4435, valid_rmse=1.1402, valid_pr=0.7853
+2025-10-22 12:33:33 - INFO - Epoch 60: train_loss=0.2022, train_rmse=0.4497, valid_rmse=1.1322, valid_pr=0.7896
+2025-10-22 12:34:01 - INFO - Epoch 61: train_loss=0.1950, train_rmse=0.4416, valid_rmse=1.1379, valid_pr=0.7870
+2025-10-22 12:34:30 - INFO - Epoch 62: train_loss=0.1975, train_rmse=0.4444, valid_rmse=1.1387, valid_pr=0.7888
+2025-10-22 12:34:59 - INFO - Epoch 63: train_loss=0.1931, train_rmse=0.4395, valid_rmse=1.1259, valid_pr=0.7877
+2025-10-22 12:35:27 - INFO - Epoch 64: train_loss=0.1892, train_rmse=0.4350, valid_rmse=1.1385, valid_pr=0.7886
+2025-10-22 12:35:56 - INFO - Epoch 65: train_loss=0.1848, train_rmse=0.4299, valid_rmse=1.1336, valid_pr=0.7911
+2025-10-22 12:36:25 - INFO - Epoch 66: train_loss=0.1879, train_rmse=0.4335, valid_rmse=1.1375, valid_pr=0.7843
+2025-10-22 12:36:25 - INFO - ⏹️  Early stopping at epoch 66
+2025-10-22 12:36:25 - INFO - 
+📊 加载最佳模型进行最终评估...
+2025-10-22 12:36:27 - INFO - 
+🎉 最终微调验证结果: RMSE=1.1195, Pearson=0.7905
