@@ -1,0 +1,54 @@
+BindnetV2--pretrain
+
+Step: 测试 (train.py)
+Command: python train.py --data_csv /xcfhome/zncao02/BioMPNN_affinity/scripts/core_set.csv --mode test --graph_type Graph_EHIGN_5edges --batch_size 96 --epochs 200 --early_stop_epoch 30 --learning_rate 0.0001 --weight_decay 1e-06 --train_ratio 0.9 --random_seed 42 --node_feat_size 35 --edge_feat_size 17 --hidden_feat_size 256 --layer_num 3 --num_workers 8 --cuda_device 0 --save_path /xcfhome/zncao02/BioMPNN_affinity/best_model.pt
+================================================================================
+
+2025-10-22 18:03:28 - INFO - 📂 读取 CSV 文件: /xcfhome/zncao02/BioMPNN_affinity/scripts/core_set.csv
+2025-10-22 18:03:28 - INFO -    - CSV 中总样本数: 285
+2025-10-22 18:03:28 - INFO - 
+🧪 测试模式: 使用全部数据进行评估
+2025-10-22 18:03:28 - INFO -    - 数据集 CSV 样本数: 285
+2025-10-22 18:03:28 - INFO - 
+🔍 检查训练集 DGL 文件...
+2025-10-22 18:03:29 - INFO - ✅ 数据集加载完成:
+2025-10-22 18:03:29 - INFO -    - 总样本数: 285
+2025-10-22 18:03:29 - INFO -    - 成功加载: 285
+2025-10-22 18:03:29 - INFO -    - 跳过样本: 0
+2025-10-22 18:03:29 - INFO - 
+🔍 检查验证集 DGL 文件...
+2025-10-22 18:03:29 - INFO - ✅ 数据集加载完成:
+2025-10-22 18:03:29 - INFO -    - 总样本数: 285
+2025-10-22 18:03:29 - INFO -    - 成功加载: 285
+2025-10-22 18:03:29 - INFO -    - 跳过样本: 0
+2025-10-22 18:03:29 - INFO - 
+✅ 最终数据集统计:
+2025-10-22 18:03:29 - INFO -    - 训练集有效样本: 285
+2025-10-22 18:03:29 - INFO -    - 验证集有效样本: 285
+2025-10-22 18:03:30 - INFO - 
+📥 测试模式：加载模型权重: /xcfhome/zncao02/BioMPNN_affinity/best_model.pt
+2025-10-22 18:03:31 - INFO - ✅ 模型加载成功!
+2025-10-22 18:03:31 - INFO - 
+🧪 开始测试评估...
+2025-10-22 18:03:45 - INFO - 
+🎉 测试结果: RMSE=1.5284, Pearson=0.7306
+
+✅ 测试 (train.py) completed successfully
+
+
+================================================================================
+🎉 完整流程执行成功！
+================================================================================
+模式: 测试
+输入 CSV: /xcfhome/zncao02/BioMPNN_affinity/scripts/core_set.csv
+处理后 CSV: /xcfhome/zncao02/BioMPNN_affinity/scripts/core_set.csv
+
+
+##PDBBind 从头训练
+
+2025-10-22 17:39:35 - INFO - ⏹️  Early stopping at epoch 199
+2025-10-22 17:39:35 - INFO - 
+📊 加载最佳模型进行最终评估...
+2025-10-22 17:39:38 - INFO - 
+🎉 最终验证结果: RMSE=1.1532, Pearson=0.7740
+End time: Wed Oct 22 17:39:47 HKT 2025

@@ -1,0 +1,31 @@
+2025-10-23 14:37:56 - INFO - 📝 日志将保存到: /xcfhome/zncao02/BioMPNN_affinity/log/PDBBind_pretrain_test.log
+2025-10-23 14:37:56 - INFO - 📂 读取 CSV 文件: /xcfhome/zncao02/BioMPNN_affinity/scripts/core_set.csv
+2025-10-23 14:37:56 - INFO -    - CSV 中总样本数: 285
+2025-10-23 14:37:56 - INFO - 
+🧪 测试模式: 使用全部数据进行评估
+2025-10-23 14:37:56 - INFO -    - 数据集 CSV 样本数: 285
+2025-10-23 14:37:56 - INFO - 
+🔍 检查训练集 DGL 文件...
+2025-10-23 14:37:56 - INFO - ✅ 数据集加载完成:
+2025-10-23 14:37:56 - INFO -    - 总样本数: 285
+2025-10-23 14:37:56 - INFO -    - 成功加载: 285
+2025-10-23 14:37:56 - INFO -    - 跳过样本: 0
+2025-10-23 14:37:56 - INFO - 
+🔍 检查验证集 DGL 文件...
+2025-10-23 14:37:56 - INFO - ✅ 数据集加载完成:
+2025-10-23 14:37:56 - INFO -    - 总样本数: 285
+2025-10-23 14:37:56 - INFO -    - 成功加载: 285
+2025-10-23 14:37:56 - INFO -    - 跳过样本: 0
+2025-10-23 14:37:56 - INFO - 
+✅ 最终数据集统计:
+2025-10-23 14:37:56 - INFO -    - 训练集有效样本: 285
+2025-10-23 14:37:56 - INFO -    - 验证集有效样本: 285
+2025-10-23 14:37:57 - INFO - 
+📥 测试模式：加载模型权重: /xcfhome/zncao02/BioMPNN_affinity/ckpt/PDBind_pretrain.pt
+2025-10-23 14:37:57 - INFO - ✅ 模型加载成功!
+2025-10-23 14:37:57 - INFO - 
+🧪 开始测试评估...
+2025-10-23 14:38:00 - INFO - 
+🎉 测试结果: RMSE=1.5284, Pearson=0.7306
+2025-10-23 14:38:00 - INFO - 📊 预测结果已保存到: /xcfhome/zncao02/BioMPNN_affinity/results/PDBBind_pretrain_test.csv
+2025-10-23 14:38:00 - INFO -    - 包含列: ['receptor', 'ligand', 'name', 'pk', 'predicted_pK', 'true_pK', 'error', 'absolute_error']
